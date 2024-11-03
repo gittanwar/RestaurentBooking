@@ -1,0 +1,125 @@
+/* src/Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+  background-color: #000;
+  color: #fff;
+}
+  
+.logo img {
+  width: 69%;
+}
+.logo {
+  font-weight: bold;
+  color: #d1e1ff;
+  font-family: 'Pinyon Script';
+  font-size: 37px;
+  letter-spacing: 5px;
+  width: 9%;
+}
+  .nav {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin-bottom: 0;
+}
+  .book a {
+    padding: 14px 42px;
+    background: #e7d5b1;
+    text-decoration: none;
+    color: #2b2b2b;
+}
+  .nav a {
+    color: rgb(209 225 255);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+  
+  .nav a:hover {
+    color: #ddd;
+  }
+  
+  /* Responsive Menu Icon */
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav {
+      position: absolute;
+      top: 60px;
+      right: 0px;
+      background-color: #33333300;
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+      height: 100vh;
+      transition: right 0.3s ease-in-out;
+      overflow: hidden;
+  }
+  .nav ul {
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    width: 100%;
+    right: -324px;
+    z-index: 333;
+    background: #312b2b;
+    transition: right 0.3s ease-in-out;
+}
+  /* When active or open */
+  .nav.active ul {
+    right: 0; /* Bring it back into view */
+}
+  
+  
+    .nav.open ul {
+      right: 0; /* Bring it back into view */
+    z-index: 999;
+    transition: right 0.3s ease-in-out;
+  }
+  
+  .nav ul {
+    flex-direction: column;
+    text-align: left;
+    gap: 2rem;
+    padding: 24px 34px;
+    height: 100%;
+}
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+  @media (max-width:600px){
+    .booking-form {
+      max-width: 100%;
+      width: 100%;
+  }
+    .logo {
+      width: 33%;
+  }
+    .book a {
+        padding: 5px 11px;
+        font-size: 13px;
+    }
+      .logo {
+        font-size: 19px;
+        letter-spacing: 0px;
+    }
+    }

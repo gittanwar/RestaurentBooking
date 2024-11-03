@@ -1,0 +1,559 @@
+.App {
+  text-align: center;
+}
+/* src/App.css */
+body {
+  font-family: 'Pinyon Script', cursive;
+}
+
+.your-class {
+  font-family: 'Pinyon Script', cursive;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.awssld__container {
+  height: 35% !important;
+  --slider-height-percentage: 44%;
+}
+.booking-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.option-group {
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    background-color: white;
+    color: #007BFF;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+button:hover:not(.active) {
+  background-color: #ffffff;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+.booking-form {
+  width: 400px;
+  margin: 21px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+.booking-form h2 {
+  font-size: 22px;
+  margin: 0;
+  font-family: system-ui;
+  background: #e7d5b1;
+  padding: 8px 15px 12px;
+  position: relative;
+  top: -20px;
+  color: #000;
+  border-radius: 0px 0px 27px 27px;
+}
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.option-group {
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+  justify-content: space-between; /* Distribute buttons evenly */
+}
+h3 {
+  font-family: sans-serif;
+}
+.booking-form {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.booking-form h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.options input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background: #fff;
+  color: #555;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.options input.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.options input:hover {
+  background-color: #e0e0e0;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+
+h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.option-group {
+  display: block;
+  text-align: center;
+}
+.option-group button {
+  display: inline-flex;
+  width: 29%;
+  margin: 0 7px;
+  justify-content: center;
+}
+
+.submit-button {
+  width: 100%; /* Make submit button full width */
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+.options input[type="radio"] {
+  display: none;
+}
+.options label.active {
+  background: #000;
+  color: #fff;
+}
+.section label {
+  display: grid;
+  margin-bottom: 0.5rem;
+  color: #555;
+  padding: 8px 19px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-family: sans-serif;
+  font-size: 16px;
+  gap: 10px;
+}
+/* service.css */
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #0b3a53; /* Background color similar to the image */
+}
+
+.service-card {
+  width: 220px;
+  background-color: #102b3f;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.service-image {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.service-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.service-rating {
+  color: #f1c40f;
+  font-size: 1em;
+}
+
+.service-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.service-button:hover {
+  background-color: #555;
+}
+/* Banner.css */
+.banner {
+  background-image: url("./images/service.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* Text color */
+  text-align: center;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay */
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1; /* Ensures content is above the overlay */
+}
+
+.banner h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.banner p {
+  font-size: 1.2em;
+}
+.p-3.border.bg-light img {
+  width: 100%;
+}
+
+.p-3.border.bg-light h2 {
+  font-size: 18px;
+}
+.p-3.border.bg-light p {
+  text-align: center;
+  font-size: 14px;
+}
+section.services h4 {
+  text-align: center;
+  font-family: 'Pinyon Script';
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+section.services {
+  padding: 49px 32px;
+}
+
+.contact {
+  background-image: url("./images/contact.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* Text color */
+  text-align: center;
+  position: relative;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay */
+}
+/* ContactUs.css */
+.contact-us-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+  background-color: #f5f5f5;
+}
+
+.contact-details {
+  flex: 1 1 40%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details h2 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.contact-details p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.map {
+  flex: 1 1 55%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.map iframe {
+  border: 0;
+  width: 100%;
+  height: 400px;
+}
+
+
+/* ContactForm.css */
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.faq h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.faq-list {
+  margin-top: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.faq-question h4 {
+  font-size: 18px;
+  color: #333;
+}
+
+.faq-question span {
+  font-size: 24px;
+  color: #666;
+}
+
+.faq-answer {
+  padding: 10px 0 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+section.contact-us-section {
+  padding: 40px 0;
+}
+@media (max-width:600px){
+  .banner h1 {
+    font-size: 1.5em;
+  }
+  .banner {
+    background-position: center;
+    height: 198px;
+}
+  .banner-content {
+    padding: 13px;
+}
+  .contact-form-container {
+    max-width: 100%;
+    padding: 61px 17px;
+}
+  section.contact-us-section h4 {
+    text-align: center;
+    font-size: 14px;
+}
+  .contact-us-section {
+    display: block;
+    gap: 0px;
+    padding: 5px;
+}
+  .contact {
+    height: 187px;
+  }
+}

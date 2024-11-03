@@ -1,0 +1,127 @@
+/* Import slick carousel default styling */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+/* src/SliderStyles.css */
+.slider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+.banner-slider .slider-text {
+  position: absolute;
+  top: 46%;
+  color: white;
+  text-align: center !important;
+  background: rgb(0 0 0 / 5%);
+  padding: 10px;
+  border-radius: 8px;
+  right: 0;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.slider-text h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+  font-family: cursive;
+}
+.slider-text p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+.awssld__container {
+  display: block;
+  width: 100%;
+  height: 0;
+}
+
+.awssld__controls__arrow-right:before, .awssld__controls__arrow-right:after {
+  background-color: #ffffff !important;
+}
+
+.awssld__controls__arrow-left:before, .awssld__controls__arrow-left:after, .awssld__controls__arrow-right:before, .awssld__controls__arrow-right:after {
+  background-color: #ffffff !important;
+}
+
+.about-us, .restaurant-slider, .booking-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.about-us p, .restaurant-slider p, .booking-section p {
+  font-size: 16px;
+  color: #777;
+  font-family: sans-serif;
+  line-height: 2;
+}
+
+.slider-text h2, .slider-text h3 {
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+.awssld__bullets {
+  bottom: 10px !important;
+  z-index: 15;
+}
+.booking-section {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+}
+.banner-slider, .services-slider, .booking-section {
+  padding: 0px;
+  text-align: center;
+}
+.slick-next {
+  right: 0 !important;
+}
+.slick-initialized .slick-slide {
+  display: block;
+  position: relative !important;
+}
+.slider-text {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 5px;
+}
+
+.slick-slide img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.awssld__bullets button {
+  width: 11px;
+  height: 11px;
+  background: #cdc4c4;
+}
+.awssld__bullets .awssld__bullets--active {
+  background: #ffffff;
+}
+@media (max-width:600px){
+  .slider-text p {
+    font-size: 1.0rem;
+}
+  .slider-text h2 {
+    font-size: 1.3rem;
+}
+.banner-slider .slider-text {
+  top: 22%;
+  transform: translateX(0%);
+  left: 0%;
+  right: 0;
+  width: 100%;
+}
+}
