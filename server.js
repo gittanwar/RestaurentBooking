@@ -1,113 +1,84 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
+// app.js
+const express = require('express');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+const Superuser = require('./models/Superuser'); // Import the superuser model
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 
-const mongoose = require('mongoose');
+app.use(express.json());
 
-mongoose.connect('mongodb://localhost:3000/yourdbname', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Connect to MongoDB (already configured in your previous setup)
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('MongoDB connection error:', error));
 
-const Booking = require('./Booking'); // Import the Booking model
-
-app.post('/book-table', async (req, res) => {
-  const { location, personType, seats } = req.body;
-
-  // Create a new booking instance
-  const newBooking = new Booking({
-    location,
-    personType,
-    seats,
-  });
-
-  try {
-    await newBooking.save(); // Save the booking to the database
-    res.status(201).json({ success: true, message: 'Booking created successfully' });
-  } catch (error) {
-    console.error('Error creating booking:', error);
-    res.status(500).json({ success: false, message: 'Failed to create booking' });
-  }
-});
-
-app.use(cors());
-app.use(bodyParser.json());
-
-let superuser = null;
-
-// Function to create a superuser if not already created
-const initializeSuperuser = async () => {
-  const username = process.env.ADMIN_USERNAME;
-  const plainPassword = process.env.ADMIN_PASSWORD;
-
-  // Hash the password and store it
-  const hashedPassword = await bcrypt.hash(plainPassword, 10);
-  superuser = { username, password: hashedPassword };
-};
-
-// Call this function to initialize superuser when server starts
-initializeSuperuser().then(() => console.log("Superuser initialized."));
-
-// Admin login route
-app.post("/admin-login", async (req, res) => {
+// Endpoint to create a superuser (run this only once)
+app.post('/api/create-superuser', async (req, res) => {
   const { username, password } = req.body;
 
-  if (superuser && username === superuser.username) {
-    const isMatch = await bcrypt.compare(password, superuser.password);
-    if (isMatch) {
-      return res.json({ success: true });
-    }
+  // Check if superuser already exists
+  const existingSuperuser = await Superuser.findOne({ username });
+  if (existingSuperuser) {
+    return res.status(400).json({ message: 'Superuser already exists' });
   }
-  res.status(401).json({ success: false, message: "Invalid credentials" });
+
+  // Create and save new superuser
+  const superuser = new Superuser({ username, password });
+  await superuser.save();
+
+  res.status(201).json({ message: 'Superuser created successfully' });
 });
 
-// POST route for sending emails
-app.post("/send-email", (req, res) => {
-  const { location, personType, seats } = req.body;
+// Endpoint to login superuser
+app.post('/api/superuser-login', async (req, res) => {
+  const { username, password } = req.body;
+  const superuser = await Superuser.findOne({ username });
 
-  // Create a transporter object using SMTP transport
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.EMAIL_USER, // Your email from .env
-      pass: process.env.EMAIL_PASS, // Your email password or app password from .env
-    },
+  if (!superuser || !(await bcrypt.compare(password, superuser.password))) {
+    return res.status(401).json({ message: 'Invalid username or password' });
+  }
+
+  // Generate JWT token
+  const token = jwt.sign({ id: superuser._id, role: superuser.role }, process.env.JWT_SECRET, {
+    expiresIn: '1h',
   });
 
-  // Email options
-  const mailOptions = {
-    from: process.env.EMAIL_USER, // Sender address
-    to: process.env.EMAIL_USER, // Admin email
-    subject: "New Table Booking Request",
-    text: `Location: ${location}\nPerson Type: ${personType}\nSeats: ${seats}`,
-  };
-
-  // Send email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error sending email:", error);
-      return res.status(500).send("Error sending email: " + error.toString());
-    }
-    res.status(200).send("Email sent: " + info.response);
-  });
+  res.json({ message: 'Login successful', token });
 });
 
-// Route to retrieve bookings (dummy data)
-app.get("/bookings", (req, res) => {
-  const bookings = [
-    { location: "Indoor", personType: "Family", seats: 4, date: Date.now() },
-    { location: "Outdoor", personType: "Couple", seats: 2, date: Date.now() },
-  ];
-  res.json(bookings);
+// Middleware to authenticate superuser
+const authenticateSuperuser = (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ message: 'No token provided' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    return res.status(401).json({ message: 'Invalid token' });
+  }
+};
+
+// Example of a protected route
+app.get('/api/admin-data', authenticateSuperuser, (req, res) => {
+  if (req.user.role === 'admin') {
+    res.json({ message: 'Welcome, superuser!', data: { /* secure data here */ } });
+  } else {
+    res.status(403).json({ message: 'Forbidden' });
+  }
 });
 
-// Start the server
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
