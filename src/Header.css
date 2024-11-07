@@ -70,6 +70,10 @@
       height: 100vh;
       transition: right 0.3s ease-in-out;
       overflow: hidden;
+      z-index: -1;
+  }
+  .open{
+    z-index: 20;
   }
   .nav ul {
     position: absolute;
