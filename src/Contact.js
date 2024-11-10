@@ -67,8 +67,7 @@ const ContactForm = () => {
       {/* Contact Us Section */}
       <section className="contact-us-section">
         <div className="container">
-          <h2>Special Menu</h2>
-          <h4>Special Offers</h4>
+          <h2>Send Query</h2>
           <div className="row">
             <div className="col-md-6 col-12">
               <div className="contact-details">
@@ -78,17 +77,6 @@ const ContactForm = () => {
                 <p><strong>Email:</strong> contact@ourcompany.com</p>
                 <p><strong>Working Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM</p>
               </div>
-              <div className="map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.056722541526!2d144.9630583157488!3d-37.81410797975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218cee17!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1614530942904!5m2!1sen!2s"
-          width="100%"
-          height="300"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          title="Our Location"
-        ></iframe>
-      </div>
             </div>
             <div className="col-md-6 col-12">
               <div className="contact-form-container">
@@ -141,7 +129,23 @@ const ContactForm = () => {
       </form>
               </div>
             </div>
+
           </div>
+        <div className="row">
+        <h2>Our Location</h2>
+          <div className="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.056722541526!2d144.9630583157488!3d-37.81410797975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218cee17!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1614530942904!5m2!1sen!2s"
+          width="100%"
+          height="300"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          title="Our Location"
+        ></iframe>
+      </div>
+          </div>
+
         </div>
       </section>
     </div>

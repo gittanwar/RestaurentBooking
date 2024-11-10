@@ -11,6 +11,9 @@ import Footer from './Footer';
 import FAQ from './FAQ';
 import AdminLogin from './AdminLogin';
 import Dashboard from './Dashboard';
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
 
 function App() {
   // State to track admin authentication

@@ -40,19 +40,19 @@ function Home() {
         <AwesomeSlider animation="scaleOutAnimation">
           <div data-src={require('./images/banner1.jpg')}>
             <div className="slider-text">
-              <h2>Welcome to Our Website</h2>
+              <h1>Welcome to Our Website</h1>
               <p>Discover amazing content and features!</p>
             </div>
           </div>
           <div data-src={require('./images/banner2.jpg')}>
             <div className="slider-text">
-              <h2>Explore Our Services</h2>
+              <h1>Explore Our Services</h1>
               <p>We provide top-notch services tailored for you.</p>
             </div>
           </div>
           <div data-src={require('./images/banner3.jpg')}>
             <div className="slider-text">
-              <h2>Contact Us Today</h2>
+              <h1>Contact Us Today</h1>
               <p>Reach out for more information and support.</p>
             </div>
           </div>
